@@ -1,0 +1,128 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: frontend
+  namespace: myapp
+  labels:
+    app: frontend
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: frontend
+  template:
+    metadata:
+      labels:
+        app: frontend
+    spec:
+      containers:
+      - name: frontend-container
+        image: registry.hub.docker.com/zeehasham27/emumbdatest_frontend:latest
+        env:
+        - name: API_GATEWAY
+          value: "http://54.175.119.142:8081"
+        ports:
+        - containerPort: 80
+
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: frontend
+  namespace: myapp
+  labels:
+    app: frontend
+spec:
+  selector:
+    app: frontend
+  ports:
+  - port: 8081
+    targetPort: 80
+  type: ClusterIP
+
+---
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: apigateway
+  namespace: myapp
+  labels:
+    app: apigateway
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: apigateway
+  template:
+    metadata:
+      labels:
+        app: apigateway
+    spec:
+      containers:
+      - name: apigateway-container
+        image: registry.hub.docker.com/zeehasham27/emumbdatest_api:latest
+        env:
+        - name: QUOTES_API
+          value: "http://quotes:5000"
+        ports:
+        - containerPort: 3000
+
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: apigateway
+  namespace: myapp
+  labels:
+    app: apigateway
+spec:
+  selector:
+    app: apigateway
+  ports:
+  - port: 3000
+    targetPort: 3000
+  type: ClusterIP
+
+---
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: quotes
+  namespace: myapp
+  labels:
+    app: quotes
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: quotes
+  template:
+    metadata:
+      labels:
+        app: quotes
+    spec:
+      containers:
+      - name: quotes
+        image: registry.hub.docker.com/zeehasham27/emumbdatest_quotes:latest
+        ports:
+        - containerPort: 5000
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: quotes
+  namespace: myapp
+  labels:
+    app: quotes
+spec:
+  type: ClusterIP
+  selector:
+    app: quotes
+  ports:
+  - port: 5000
+    targetPort: 5000
