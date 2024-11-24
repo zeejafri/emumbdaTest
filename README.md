@@ -17,7 +17,7 @@
     * Remember no / at the end of the URL to get your web app work
       
 #Resources
-https://kubernetes.io/docs
-https://dev.to/sagarjadhv23/executing-shell-script-in-terraform-via-null-resource-872
-https://zeet.co/blog/kubernetes-deployment-template
-https://spacelift.io/blog/argocd-terraform
+- https://kubernetes.io/docs
+- https://dev.to/sagarjadhv23/executing-shell-script-in-terraform-via-null-resource-872
+- https://zeet.co/blog/kubernetes-deployment-template
+- https://spacelift.io/blog/argocd-terraform
