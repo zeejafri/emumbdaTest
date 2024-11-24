@@ -24,7 +24,11 @@ spec:
           value: "http://54.175.119.142:8081"
         ports:
         - containerPort: 80
-
+        resources:
+          limits:
+            cpu: 500m
+          requests:
+            cpu: 200m
 ---
 
 apiVersion: v1
@@ -69,7 +73,11 @@ spec:
           value: "http://quotes:5000"
         ports:
         - containerPort: 3000
-
+        resources:
+          limits:
+            cpu: 500m
+          requests:
+            cpu: 200m
 ---
 
 apiVersion: v1
@@ -111,7 +119,11 @@ spec:
         image: registry.hub.docker.com/zeehasham27/emumbdatest_quotes:latest
         ports:
         - containerPort: 5000
-
+        resources:
+          limits:
+            cpu: 500m
+          requests:
+            cpu: 200m
 ---
 apiVersion: v1
 kind: Service
