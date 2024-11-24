@@ -7,7 +7,16 @@ metadata:
   labels:
     app: frontend
 spec:
-  replicas: 2
+  affinity:
+    nodeAffinity:
+      requiredDuringSchedulingIgnoredDuringExecution:
+        nodeSelectorTerms:
+        - matchExpressions:
+          - key: vm-type
+            operator: In
+            values:
+            - frontend
+  replicas: 1
   selector:
     matchLabels:
       app: frontend
@@ -69,7 +78,16 @@ metadata:
   labels:
     app: apigateway
 spec:
-  replicas: 2
+  affinity:
+    nodeAffinity:
+      requiredDuringSchedulingIgnoredDuringExecution:
+        nodeSelectorTerms:
+        - matchExpressions:
+          - key: vm-type
+            operator: In
+            values:
+            - backend
+  replicas: 1
   selector:
     matchLabels:
       app: apigateway
@@ -131,7 +149,16 @@ metadata:
   labels:
     app: quotes
 spec:
-  replicas: 2
+  affinity:
+    nodeAffinity:
+      requiredDuringSchedulingIgnoredDuringExecution:
+        nodeSelectorTerms:
+        - matchExpressions:
+          - key: vm-type
+            operator: In
+            values:
+            - backend
+  replicas: 1
   selector:
     matchLabels:
       app: quotes
