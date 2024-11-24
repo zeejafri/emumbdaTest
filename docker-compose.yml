@@ -1,0 +1,25 @@
+version: '2'
+services:
+  quotes:
+    build:
+      context: ./QuoteService
+      dockerfile: app.dockerfile
+  api:
+    build:
+      context: ./ApiGateway
+      dockerfile: app.dockerfile
+    environment:
+      - "QUOTES_API=http://quotes:5000"
+    depends_on:
+      - quotes
+    ports:
+      - "3000:3000"
+  frontend:
+    build:
+      context: ./FrontendApplication
+      dockerfile: app.dockerfile
+    environment:
+      - "API_GATEWAY=http://52.207.9.14:8080"
+    ports:
+      - "8080:80"
+    
