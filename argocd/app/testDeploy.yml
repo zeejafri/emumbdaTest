@@ -35,8 +35,8 @@ spec:
         - containerPort: 80
         resources:
           requests:
-            memory: "400M"
-            cpu: 400m
+            memory: "128M"
+            cpu: 200m
         livenessProbe:
           exec:
             command:
@@ -106,8 +106,8 @@ spec:
         - containerPort: 3000
         resources:
           requests:
-            cpu: 400m
-            memory: "400M"
+            cpu: 200m
+            memory: "128M"
         livenessProbe:
           exec:
             command:
@@ -174,8 +174,8 @@ spec:
         - containerPort: 5000
         resources:
           requests:
-            cpu: 400m
-            memory: "400M"
+            cpu: 200m
+            memory: "128M"
         livenessProbe:
           exec:
             command:
