@@ -25,10 +25,8 @@ spec:
         ports:
         - containerPort: 80
         resources:
-          limits:
-            cpu: 500m
           requests:
-            cpu: 200m
+            cpu: 1000m
 ---
 
 apiVersion: v1
@@ -74,10 +72,8 @@ spec:
         ports:
         - containerPort: 3000
         resources:
-          limits:
-            cpu: 500m
           requests:
-            cpu: 200m
+            cpu: 1000m
 ---
 
 apiVersion: v1
@@ -120,10 +116,8 @@ spec:
         ports:
         - containerPort: 5000
         resources:
-          limits:
-            cpu: 500m
           requests:
-            cpu: 200m
+            cpu: 1000m
 ---
 apiVersion: v1
 kind: Service
