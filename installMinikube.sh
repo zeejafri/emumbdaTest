@@ -8,6 +8,10 @@ minikube start -p multinode-demo
 echo "***** Adding 2 worker nodes to the Cluster *****"
 minikube node add --worker -p multinode-demo
 minikube node add --worker -p multinode-demo
+echo "**** Setting up kubectl Binary *****"
+curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"
+sudo chmod +x kubectl
+sudo mv kubectl /usr/bin
 echo " "
 echo " "
 echo " "
