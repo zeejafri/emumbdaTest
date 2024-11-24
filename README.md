@@ -5,12 +5,12 @@
 - Install Minikube from the following URL if you are not using a debian based VM:
   https://minikube.sigs.k8s.io/docs/start/?arch=%2Fmacos%2Farm64%2Fstable%2Fbinary+download
 
-# Deploy Minikube cluster manually (without prepare_env.sh)
+Deploy Minikube cluster manually (without prepare_env.sh)
 - Assuming you have installed dockers and Minikube, you can follow the commands below to create a cluster:
   `minikube start -p multinode-demo`
 - Add Worker Nodes to the cluster
   `minikube node add --worker -p multinode-demo`
-  
+
 
 # Simple Microservice Example
 
