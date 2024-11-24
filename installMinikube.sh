@@ -16,4 +16,6 @@ echo " "
 echo " "
 echo " "
 kubectl get nodes
+kubectl create ns argocd
+kubectl create ns my-app
 kubectl apply -f ../argocd/config/argocd-app.yml
