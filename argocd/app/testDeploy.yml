@@ -26,7 +26,7 @@ spec:
         - containerPort: 80
         resources:
           requests:
-            cpu: 1000m
+            cpu: 400m
 ---
 
 apiVersion: v1
@@ -73,7 +73,7 @@ spec:
         - containerPort: 3000
         resources:
           requests:
-            cpu: 1000m
+            cpu: 400m
 ---
 
 apiVersion: v1
@@ -117,7 +117,7 @@ spec:
         - containerPort: 5000
         resources:
           requests:
-            cpu: 1000m
+            cpu: 400m
 ---
 apiVersion: v1
 kind: Service
